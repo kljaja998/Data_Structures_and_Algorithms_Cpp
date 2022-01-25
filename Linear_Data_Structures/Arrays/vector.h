@@ -33,7 +33,7 @@ public:
      * @param pos - Location of the element to return.
      * @return Reference to the requested element.
      */
-    T& operator[](std::size_t pos);
+    T &operator[](std::size_t pos);
 
     /**
      * Checks whether the vector is empty or not.
@@ -68,7 +68,7 @@ public:
      * Insert the element at position before pos.
      * @param pos - the position before which the element will be inserted.
      */
-    void insert(std::size_t pos);
+    void insert(std::size_t pos, const T &value);
 
     /**
      * Erases the element
@@ -80,12 +80,30 @@ public:
      * Push the value to the back of the vector.
      * @param value - The value to be pushed back.
      */
-    void push_back(const T& value);
+    void push_back(const T &value);
 
     /**
      * Erase the value off the end of the vector.
      */
     void pop_back();
+
+private:
+    /**
+     * The array used to store the data.
+     */
+    T *array;
+    /**
+     * The length of the array, i.e. the capacity of the vector.
+     */
+    std::size_t length_of_array;
+    /**
+     * The number of elements in the vector.
+     */
+    std::size_t number_of_elements = 0;
+    /**
+     * The last element in the vector.
+     */
+    T *tail;
 };
 
 
